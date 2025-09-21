@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tvapp-backend
+    env: node
+    region: oregon
+    buildCommand: cd tvapp-backend && npm install
+    startCommand: cd tvapp-backend && npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+    # Add your database and other environment variables in the Render dashboard
+    # DB_HOST, DB_USER, DB_PASSWORD, DB_NAME, JWT_SECRET
